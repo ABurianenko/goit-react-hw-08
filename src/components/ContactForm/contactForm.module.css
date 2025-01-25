@@ -1,0 +1,42 @@
+.contactForm{
+    width: 300px;
+    margin-bottom: 36px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.userName,
+.telephone {
+    border: 1px solid darkgray;
+    border-radius: 4px;
+    background-color: inherit;
+    height: 24px;
+    font-size: 16px;
+    padding-left: 8px;
+}
+
+.searchBtn {
+    border: 1px solid darkgray;
+    border-radius: 4px;
+    width: 120px;
+    padding: 8px;
+    align-self: center;
+}
+
+.searchBtn:hover {
+    background-color: rgb(255, 165, 0);
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
