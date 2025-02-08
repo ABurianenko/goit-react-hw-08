@@ -1,0 +1,8 @@
+.authNav {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    font-size: 18px;
+    text-decoration: underline;
+    color: green;
+}

@@ -1,5 +1,5 @@
 import { createSelector, createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { fetchContacts, addContact, deleteContact } from "./contactsOps";
+import { fetchContacts, addContact, deleteContact, updateContact } from "./operations";
 
 
 const initialState = {
@@ -28,6 +28,9 @@ const contactsSlice = createSlice({
                 state.error = null;
                 state.items = state.items.filter(item => item.id !== action.payload.id);
             })
+            .addCase(updateContact.fulfilled, (state, action) => {
+                state.items = state.items.map(item => item.id === action.payload.id ? action.payload : item);
+            })
             .addMatcher(isAnyOf(fetchContacts.pending, addContact.pending, deleteContact.pending), (state) => {
                 state.isLoading = true;
             })
@@ -39,10 +42,10 @@ const contactsSlice = createSlice({
 })
 
 export const currentContactsArray = state => state.contacts.items;
-export const selectNameFilter = state => state.filters.name;
+export const selectNameFilter = state => state.filters.filter;
 
 export const selectFilteredContacts = createSelector([currentContactsArray, selectNameFilter], (contacts, filters) => {
-    return contacts.filter(contact => contact.name.toLowerCase().includes(filters.toLowerCase()||""))
+    return contacts.filter(contact => contact.name.toLowerCase().includes(filters.toLowerCase()||"")||contact.number.includes(filters))
 })
 export const contactsReducer = contactsSlice.reducer;
 export const { fetchAll, fetchSuccess, fetchError } = contactsSlice.actions;

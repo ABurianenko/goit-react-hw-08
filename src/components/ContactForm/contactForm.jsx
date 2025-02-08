@@ -1,11 +1,11 @@
-import { contactForm, userName, telephone, label, searchBtn, error} from './contactForm.module.css'
+import { form, input, label, formBtn, error} from './contactForm.module.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsOps';
+import { addContact } from '../../redux/contacts/operations';
 import * as Yup from 'yup';
 
 
-const ContactForm = () => {
+export const ContactForm = () => {
     const dispatch = useDispatch();
 
     const handleSubmit = (values, actions) => {
@@ -37,23 +37,21 @@ const ContactForm = () => {
             onSubmit={handleSubmit}
             validationSchema={validationSchema}
         >
-            <Form className={contactForm} >
+            <Form className={form} >
                 <label className={label}>
                     <span>Name</span>
-                    <Field className={userName} type="text" name="username" />
+                    <Field className={input} type="text" name="username" />
                     <ErrorMessage className={error} name="username" component='span' />
                 </label>
                 <label className={label}>
                     <span>Number</span>
-                    <Field className={telephone} type="tel" name="tel" />
+                    <Field className={input} type="tel" name="tel" />
                     <ErrorMessage className={error} name="tel" component='span' />
                 </label>
                 
-                <button className={searchBtn} type="submit">Add contact</button>
+                <button className={formBtn} type="submit">Add contact</button>
             </Form>
         </Formik>
         
     )
 }
-
-export default ContactForm;

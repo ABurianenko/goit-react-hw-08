@@ -1,0 +1,51 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 80%;
+    background-color: aliceblue;
+}
+
+.confirmModal {
+    width: 300px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.request {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.contactName {
+    color: blue;
+}
+
+.delBtn {
+    border: 1px solid darkred;
+    border-radius: 4px;
+    width: 120px;
+    padding: 8px;
+    align-self: center;
+    color: red;
+}
+
+.delBtn:hover {
+    background-color: red;
+    color: white;
+}

@@ -1,0 +1,9 @@
+.homePage {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    line-height: 0.87;
+    text-align: center;
+}

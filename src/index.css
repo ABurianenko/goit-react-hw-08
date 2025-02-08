@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 body {
     min-width: 320px;
     max-width: 1280px;
@@ -25,4 +27,8 @@ ol {
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
+
+a {
+    text-decoration: none;
 }

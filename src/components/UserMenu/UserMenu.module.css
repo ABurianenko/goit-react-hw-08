@@ -1,0 +1,18 @@
+.userMenu {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.userName {
+    color: rgb(7, 98, 154);
+    text-decoration: underline;
+}
+
+.logOutBtn {
+    border: 2px solid darkgray;
+    border-radius: 4px;
+    background-color: lightgray;
+    font-size: 16px;
+    padding: 0 8px;
+}
