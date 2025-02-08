@@ -11,6 +11,7 @@ const authSlice = createSlice({
         token: null,
         isLoggedIn: false,
         isRefreshing: false,
+        error: null,
     },
     extraReducers: (builder) => {
         builder
@@ -23,6 +24,9 @@ const authSlice = createSlice({
                 state.user = action.payload.user;
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
+            })
+            .addCase(logIn.rejected, (state, action) => {
+                state.error = action.payload; 
             })
             .addCase(logOut.fulfilled, (state) => {
                 state.user = { name: null, email: null };

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import toast from "react-hot-toast";
 
 axios.defaults.baseURL = 'https://connections-api.goit.global';
 
@@ -32,7 +33,8 @@ export const logIn = createAsyncThunk(
             setAuthHeader(response.data.token);
             return response.data;
         } catch (e) {
-            return thunkApi.rejectWithValue(e.message);
+            toast.error(e.response?.data?.message || "Account not found. Check your email/password or create a new account.");
+            return thunkApi.rejectWithValue(e.message || "Login failed. Please, register your account");
         }
     }
 );
