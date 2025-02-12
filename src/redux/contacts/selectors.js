@@ -1,0 +1,1 @@
+export const currentContactsArray = state => state.contacts.items;

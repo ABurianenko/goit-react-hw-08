@@ -1,6 +1,6 @@
 import { searchContainer, searchInput } from './searchBox.module.css'
 import { changeFilter } from '../../redux/filters/slice';
-import { selectNameFilter } from '../../redux/contacts/slice';
+import { selectNameFilter } from '../../redux/filters/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 
 
